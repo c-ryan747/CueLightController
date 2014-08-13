@@ -8,7 +8,14 @@
 
 #import <UIKit/UIKit.h>
 
-@interface ViewController : UIViewController
+#import "MPController.h"
+#import "OPTVC.h"
+
+@interface ViewController : UIViewController <UITableViewDelegate, UITableViewDataSource, MCBrowserViewControllerDelegate, MPControllerDelegate>
+@property (weak, nonatomic) IBOutlet UITableView *tableView;
+@property (strong, nonatomic) MPController *mpController;
+- (IBAction)searchForPeer:(id)sender;
+- (IBAction)testMessage:(id)sender;
 
 
 @end

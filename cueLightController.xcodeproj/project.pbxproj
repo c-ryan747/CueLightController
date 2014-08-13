@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		F22A36FA199BE1C100512C87 /* OPTVC.m in Sources */ = {isa = PBXBuildFile; fileRef = F22A36F9199BE1C100512C87 /* OPTVC.m */; };
+		F251BE15199A988F0030C7F6 /* MPController.m in Sources */ = {isa = PBXBuildFile; fileRef = F251BE14199A988F0030C7F6 /* MPController.m */; };
 		F2AD5BB1199963DE00A26E5D /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = F2AD5BB0199963DE00A26E5D /* main.m */; };
 		F2AD5BB4199963DE00A26E5D /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = F2AD5BB3199963DE00A26E5D /* AppDelegate.m */; };
 		F2AD5BB7199963DE00A26E5D /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F2AD5BB6199963DE00A26E5D /* ViewController.m */; };
@@ -26,6 +28,10 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		F22A36F8199BE1C100512C87 /* OPTVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OPTVC.h; sourceTree = "<group>"; };
+		F22A36F9199BE1C100512C87 /* OPTVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OPTVC.m; sourceTree = "<group>"; };
+		F251BE13199A988F0030C7F6 /* MPController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MPController.h; path = ../../CueLight/CueLight/MPController.h; sourceTree = "<group>"; };
+		F251BE14199A988F0030C7F6 /* MPController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MPController.m; path = ../../CueLight/CueLight/MPController.m; sourceTree = "<group>"; };
 		F2AD5BAB199963DE00A26E5D /* cueLightController.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = cueLightController.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F2AD5BAF199963DE00A26E5D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		F2AD5BB0199963DE00A26E5D /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -83,6 +89,10 @@
 				F2AD5BB3199963DE00A26E5D /* AppDelegate.m */,
 				F2AD5BB5199963DE00A26E5D /* ViewController.h */,
 				F2AD5BB6199963DE00A26E5D /* ViewController.m */,
+				F22A36F8199BE1C100512C87 /* OPTVC.h */,
+				F22A36F9199BE1C100512C87 /* OPTVC.m */,
+				F251BE13199A988F0030C7F6 /* MPController.h */,
+				F251BE14199A988F0030C7F6 /* MPController.m */,
 				F2AD5BB8199963DE00A26E5D /* Main.storyboard */,
 				F2AD5BBB199963DE00A26E5D /* Images.xcassets */,
 				F2AD5BAE199963DE00A26E5D /* Supporting Files */,
@@ -217,6 +227,8 @@
 			files = (
 				F2AD5BB7199963DE00A26E5D /* ViewController.m in Sources */,
 				F2AD5BB4199963DE00A26E5D /* AppDelegate.m in Sources */,
+				F251BE15199A988F0030C7F6 /* MPController.m in Sources */,
+				F22A36FA199BE1C100512C87 /* OPTVC.m in Sources */,
 				F2AD5BB1199963DE00A26E5D /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -334,7 +346,9 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CODE_SIGN_IDENTITY = "iPhone Developer: Alan Cropper (2XRPR9MUCT)";
 				INFOPLIST_FILE = cueLightController/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
@@ -345,7 +359,9 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CODE_SIGN_IDENTITY = "iPhone Developer: Alan Cropper (2XRPR9MUCT)";
 				INFOPLIST_FILE = cueLightController/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
@@ -406,6 +422,7 @@
 				F2AD5BCD199963DE00A26E5D /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		F2AD5BCE199963DE00A26E5D /* Build configuration list for PBXNativeTarget "cueLightControllerTests" */ = {
 			isa = XCConfigurationList;
@@ -414,6 +431,7 @@
 				F2AD5BD0199963DE00A26E5D /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
