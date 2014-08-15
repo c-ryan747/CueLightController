@@ -9,7 +9,7 @@
 #import "OPTVC.h"
 
 @implementation OPTVC
-@synthesize mainButton, cueLables;
+@synthesize mainButton = _mainButton, cueLables = _cueLables, peer = _peer;
 - (instancetype)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier
 {
     self = [super initWithStyle:style reuseIdentifier:reuseIdentifier];
@@ -25,6 +25,8 @@
         [self.mainButton setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
         self.mainButton.titleLabel.font = [UIFont boldSystemFontOfSize:20.f];
         
+        [self.mainButton addTarget:self action:@selector(buttonPressed:) forControlEvents:UIControlEventTouchUpInside];
+        
         self.mainButton.layer.cornerRadius = 10;
         
         [self addSubview:self.mainButton];
@@ -37,12 +39,14 @@
     }
     return self;
 }
-
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated
 {
     [super setSelected:selected animated:animated];
 
     // Configure the view for the selected state
 }
-
+- (void)buttonPressed:(id)sender
+{
+    [[MPController sharedInstance] sendString:@"nextState" ToPeers:[NSArray arrayWithObject:self.peer]];
+}
 @end

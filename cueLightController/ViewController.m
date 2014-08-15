@@ -24,7 +24,7 @@
     self.tableView.contentInset = UIEdgeInsetsMake(0,0,0,0);
 
     self.mpController = [MPController sharedInstance];
-    [self.mpController setupIfNeeded];
+    [self.mpController setupIfNeededWithName:nil];
     self.mpController.delegate = self;
     
     [self.tableView registerClass:[OPTVC class] forCellReuseIdentifier:@"opCell"];
@@ -43,7 +43,7 @@
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
     // Return the number of rows in the section.
-    return self.mpController.session.connectedPeers.count+1;
+    return self.mpController.session.connectedPeers.count;
 }
 
 
@@ -51,9 +51,11 @@
 {
     OPTVC *cell = [tableView dequeueReusableCellWithIdentifier:@"opCell"];
     
+    
     for (int i=0; i<cell.cueLables.count; i++) {
         UILabel *label = (UILabel *)cell.cueLables[i];
         label.text = [NSString stringWithFormat:@"%d.    Some Cell descriptor",i+1];
+        cell.peer = self.mpController.session.connectedPeers[indexPath.row];
     }
     
     [cell.mainButton setTitle:@"Ready" forState:UIControlStateNormal];
@@ -99,4 +101,6 @@
 {
     [self.tableView reloadSections:[NSIndexSet indexSetWithIndex:0] withRowAnimation:UITableViewRowAnimationAutomatic];
 }
+
+
 @end
