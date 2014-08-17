@@ -14,13 +14,20 @@
 {
     self = [super initWithStyle:style reuseIdentifier:reuseIdentifier];
     if (self) {
+        
+        states = @[@{@"colour":[UIColor greenColor] , @"text":@"Get Ready"  , @"flashing":@NO},
+                   @{@"colour":[UIColor orangeColor], @"text":@"..."        , @"flashing":@YES},
+                   @{@"colour":[UIColor greenColor] , @"text":@"Go"         , @"flashing":@NO},
+                   @{@"colour":[UIColor orangeColor], @"text":@"..."        , @"flashing":@YES}];
+        self.stateCount = 0;
+        
         self.cueLables = [NSMutableArray array];
         
         self.selectionStyle = UITableViewCellSelectionStyleNone;
         
-        self.mainButton = [UIButton buttonWithType:UIButtonTypeSystem];
+        self.mainButton = [UIButton buttonWithType:UIButtonTypeCustom];
         self.mainButton.frame = CGRectMake(20, 10, 100, 80);
-        self.mainButton.backgroundColor = [UIColor greenColor];
+        self.mainButton.backgroundColor = states[self.stateCount][@"colour"];
         
         [self.mainButton setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
         self.mainButton.titleLabel.font = [UIFont boldSystemFontOfSize:20.f];
@@ -39,6 +46,28 @@
     }
     return self;
 }
+
+- (void)nextState
+{
+    if (self.stateCount >= states.count - 1) {
+        self.stateCount = 0;
+    } else {
+        self.stateCount++;
+    }
+    [self loadState];
+}
+- (void)loadState
+{
+    [self.mainButton setTitle:states[self.stateCount][@"text"]   forState:UIControlStateNormal];
+    [UIView animateWithDuration:0.5 animations:^{
+        self.mainButton.backgroundColor = states[self.stateCount][@"colour"];
+    } completion:NULL];
+}
+- (void)resetState
+{
+    self.stateCount = 0;
+    [self loadState];
+}
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated
 {
     [super setSelected:selected animated:animated];
@@ -47,6 +76,12 @@
 }
 - (void)buttonPressed:(id)sender
 {
-    [[MPController sharedInstance] sendString:@"nextState" ToPeers:[NSArray arrayWithObject:self.peer]];
+    if (self.stateCount == 1 ||self.stateCount == 3) {
+        return;
+    } else {
+        [self nextState];
+        [[MPController sharedInstance] sendString:@"nextState" ToPeers:[NSArray arrayWithObject:self.peer]];
+        
+    }
 }
 @end

@@ -64,11 +64,6 @@
                                             <action selector="searchForPeer:" destination="aVT-tM-FND" id="72X-xo-qAY"/>
                                         </connections>
                                     </barButtonItem>
-                                    <barButtonItem title="Send Message" id="lmC-nE-wan">
-                                        <connections>
-                                            <action selector="testMessage:" destination="aVT-tM-FND" id="RRc-Nk-OAv"/>
-                                        </connections>
-                                    </barButtonItem>
                                 </items>
                             </toolbar>
                         </subviews>

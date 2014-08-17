@@ -11,9 +11,14 @@
 #import "MPController.h"
 
 
-@interface OPTVC : UITableViewCell
+@interface OPTVC : UITableViewCell {
+    NSArray *states;
+}
+@property (        nonatomic) int stateCount;
 @property (strong, nonatomic) UIButton *mainButton;
 @property (strong, nonatomic) NSMutableArray *cueLables;
 @property (strong, nonatomic) MCPeerID *peer;
 
+- (void)nextState;
+- (void)resetState;
 @end

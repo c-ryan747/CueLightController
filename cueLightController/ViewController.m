@@ -84,12 +84,6 @@
     }
 }
 
-- (IBAction)testMessage:(id)sender {
-    NSArray *peers = [self.mpController.session connectedPeers];
-    if (peers.count > 0) {
-        [self.mpController.session sendData:[@"hello" dataUsingEncoding:NSUTF8StringEncoding] toPeers:peers withMode:MCSessionSendDataReliable error:nil];
-    }
-}
 - (void)browserViewControllerDidFinish:(MCBrowserViewController *)browserViewController {
     [self.mpController.browser dismissViewControllerAnimated:YES completion:nil];
 }
@@ -100,7 +94,13 @@
 - (void)peerListChanged
 {
     [self.tableView reloadSections:[NSIndexSet indexSetWithIndex:0] withRowAnimation:UITableViewRowAnimationAutomatic];
+    [self.mpController sendString:@"imTheController" ToPeers:self.mpController.session.connectedPeers];
 }
-
+- (void)recievedMessage:(NSData *)data fromPeer:(MCPeerID *)peer
+{
+    NSIndexPath *indexPath = [NSIndexPath indexPathForRow:[self.mpController.session.connectedPeers indexOfObject:peer] inSection:0];
+    OPTVC *cell = (OPTVC *)[self.tableView cellForRowAtIndexPath:indexPath];
+    [cell nextState];
+}
 
 @end

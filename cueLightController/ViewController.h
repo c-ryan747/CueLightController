@@ -15,7 +15,6 @@
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 @property (strong, nonatomic) MPController *mpController;
 - (IBAction)searchForPeer:(id)sender;
-- (IBAction)testMessage:(id)sender;
 
 
 @end
