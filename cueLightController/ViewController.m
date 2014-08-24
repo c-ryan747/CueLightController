@@ -51,12 +51,8 @@
 {
     OPTVC *cell = [tableView dequeueReusableCellWithIdentifier:@"opCell"];
     
-    
-    for (int i=0; i<cell.cueLables.count; i++) {
-        UILabel *label = (UILabel *)cell.cueLables[i];
-        label.text = [NSString stringWithFormat:@"%d.    Some Cell descriptor",i+1];
-        cell.peer = self.mpController.session.connectedPeers[indexPath.row];
-    }
+    cell.peer = self.mpController.session.connectedPeers[indexPath.row];
+    cell.opLable.text = cell.peer.displayName;
     
     [cell.mainButton setTitle:@"Ready" forState:UIControlStateNormal];
     
@@ -94,7 +90,7 @@
 - (void)peerListChanged
 {
     [self.tableView reloadSections:[NSIndexSet indexSetWithIndex:0] withRowAnimation:UITableViewRowAnimationAutomatic];
-    [self.mpController sendString:@"imTheController" ToPeers:self.mpController.session.connectedPeers];
+    [self.mpController sendObject:@"imTheController" ToPeers:self.mpController.session.connectedPeers];
 }
 - (void)recievedMessage:(NSData *)data fromPeer:(MCPeerID *)peer
 {
@@ -102,5 +98,16 @@
     OPTVC *cell = (OPTVC *)[self.tableView cellForRowAtIndexPath:indexPath];
     [cell nextState];
 }
-
+- (void)recieveNewCues:(NSArray *)cues fromPeer:(MCPeerID *)peer
+{
+    NSInteger cueIndex = [self.mpController.session.connectedPeers indexOfObject:peer];
+    if (cueIndex != NSNotFound) {
+        OPTVC *cell = (OPTVC *)[self.tableView cellForRowAtIndexPath:[NSIndexPath indexPathForRow:cueIndex inSection:0]];
+        for (int i=0; i<cues.count; i++) {
+            UILabel *cueLabel = cell.cueLables[i];
+            cueLabel.text = cues[i];
+        }
+    }
+    
+}
 @end

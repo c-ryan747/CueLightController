@@ -17,6 +17,7 @@
 @property (        nonatomic) int stateCount;
 @property (strong, nonatomic) UIButton *mainButton;
 @property (strong, nonatomic) NSMutableArray *cueLables;
+@property (strong, nonatomic) UILabel *opLable;
 @property (strong, nonatomic) MCPeerID *peer;
 
 - (void)nextState;

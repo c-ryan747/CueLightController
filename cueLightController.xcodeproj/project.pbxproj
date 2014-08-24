@@ -32,7 +32,7 @@
 		F22A36F9199BE1C100512C87 /* OPTVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OPTVC.m; sourceTree = "<group>"; };
 		F251BE13199A988F0030C7F6 /* MPController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MPController.h; path = ../../CueLight/CueLight/MPController.h; sourceTree = "<group>"; };
 		F251BE14199A988F0030C7F6 /* MPController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MPController.m; path = ../../CueLight/CueLight/MPController.m; sourceTree = "<group>"; };
-		F2AD5BAB199963DE00A26E5D /* cueLightController.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = cueLightController.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		F2AD5BAB199963DE00A26E5D /* CueLightController.temp_caseinsensitive_rename.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CueLightController.temp_caseinsensitive_rename.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F2AD5BAF199963DE00A26E5D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		F2AD5BB0199963DE00A26E5D /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		F2AD5BB2199963DE00A26E5D /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -41,7 +41,7 @@
 		F2AD5BB6199963DE00A26E5D /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
 		F2AD5BB9199963DE00A26E5D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		F2AD5BBB199963DE00A26E5D /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
-		F2AD5BC1199963DE00A26E5D /* cueLightControllerTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = cueLightControllerTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		F2AD5BC1199963DE00A26E5D /* CueLightController.temp_caseinsensitive_renameTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CueLightController.temp_caseinsensitive_renameTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		F2AD5BC6199963DE00A26E5D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		F2AD5BC7199963DE00A26E5D /* cueLightControllerTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = cueLightControllerTests.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -76,8 +76,8 @@
 		F2AD5BAC199963DE00A26E5D /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				F2AD5BAB199963DE00A26E5D /* cueLightController.app */,
-				F2AD5BC1199963DE00A26E5D /* cueLightControllerTests.xctest */,
+				F2AD5BAB199963DE00A26E5D /* CueLightController.temp_caseinsensitive_rename.app */,
+				F2AD5BC1199963DE00A26E5D /* CueLightController.temp_caseinsensitive_renameTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -129,9 +129,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		F2AD5BAA199963DE00A26E5D /* cueLightController */ = {
+		F2AD5BAA199963DE00A26E5D /* CueLightController.temp_caseinsensitive_rename */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = F2AD5BCB199963DE00A26E5D /* Build configuration list for PBXNativeTarget "cueLightController" */;
+			buildConfigurationList = F2AD5BCB199963DE00A26E5D /* Build configuration list for PBXNativeTarget "CueLightController.temp_caseinsensitive_rename" */;
 			buildPhases = (
 				F2AD5BA7199963DE00A26E5D /* Sources */,
 				F2AD5BA8199963DE00A26E5D /* Frameworks */,
@@ -141,14 +141,14 @@
 			);
 			dependencies = (
 			);
-			name = cueLightController;
+			name = CueLightController.temp_caseinsensitive_rename;
 			productName = cueLightController;
-			productReference = F2AD5BAB199963DE00A26E5D /* cueLightController.app */;
+			productReference = F2AD5BAB199963DE00A26E5D /* CueLightController.temp_caseinsensitive_rename.app */;
 			productType = "com.apple.product-type.application";
 		};
-		F2AD5BC0199963DE00A26E5D /* cueLightControllerTests */ = {
+		F2AD5BC0199963DE00A26E5D /* CueLightController.temp_caseinsensitive_renameTests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = F2AD5BCE199963DE00A26E5D /* Build configuration list for PBXNativeTarget "cueLightControllerTests" */;
+			buildConfigurationList = F2AD5BCE199963DE00A26E5D /* Build configuration list for PBXNativeTarget "CueLightController.temp_caseinsensitive_renameTests" */;
 			buildPhases = (
 				F2AD5BBD199963DE00A26E5D /* Sources */,
 				F2AD5BBE199963DE00A26E5D /* Frameworks */,
@@ -159,9 +159,9 @@
 			dependencies = (
 				F2AD5BC3199963DE00A26E5D /* PBXTargetDependency */,
 			);
-			name = cueLightControllerTests;
+			name = CueLightController.temp_caseinsensitive_renameTests;
 			productName = cueLightControllerTests;
-			productReference = F2AD5BC1199963DE00A26E5D /* cueLightControllerTests.xctest */;
+			productReference = F2AD5BC1199963DE00A26E5D /* CueLightController.temp_caseinsensitive_renameTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
 /* End PBXNativeTarget section */
@@ -182,7 +182,7 @@
 					};
 				};
 			};
-			buildConfigurationList = F2AD5BA6199963DE00A26E5D /* Build configuration list for PBXProject "cueLightController" */;
+			buildConfigurationList = F2AD5BA6199963DE00A26E5D /* Build configuration list for PBXProject "CueLightController" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
@@ -195,8 +195,8 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				F2AD5BAA199963DE00A26E5D /* cueLightController */,
-				F2AD5BC0199963DE00A26E5D /* cueLightControllerTests */,
+				F2AD5BAA199963DE00A26E5D /* CueLightController.temp_caseinsensitive_rename */,
+				F2AD5BC0199963DE00A26E5D /* CueLightController.temp_caseinsensitive_renameTests */,
 			);
 		};
 /* End PBXProject section */
@@ -246,7 +246,7 @@
 /* Begin PBXTargetDependency section */
 		F2AD5BC3199963DE00A26E5D /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = F2AD5BAA199963DE00A26E5D /* cueLightController */;
+			target = F2AD5BAA199963DE00A26E5D /* CueLightController.temp_caseinsensitive_rename */;
 			targetProxy = F2AD5BC2199963DE00A26E5D /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
@@ -350,7 +350,7 @@
 				INFOPLIST_FILE = cueLightController/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = CueLightController.temp_caseinsensitive_rename;
 			};
 			name = Debug;
 		};
@@ -363,7 +363,7 @@
 				INFOPLIST_FILE = cueLightController/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = CueLightController.temp_caseinsensitive_rename;
 			};
 			name = Release;
 		};
@@ -382,7 +382,7 @@
 				INFOPLIST_FILE = cueLightControllerTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				METAL_ENABLE_DEBUG_INFO = YES;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = CueLightController.temp_caseinsensitive_renameTests;
 				TEST_HOST = "$(BUNDLE_LOADER)";
 			};
 			name = Debug;
@@ -398,7 +398,7 @@
 				INFOPLIST_FILE = cueLightControllerTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				METAL_ENABLE_DEBUG_INFO = NO;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = CueLightController.temp_caseinsensitive_renameTests;
 				TEST_HOST = "$(BUNDLE_LOADER)";
 			};
 			name = Release;
@@ -406,7 +406,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		F2AD5BA6199963DE00A26E5D /* Build configuration list for PBXProject "cueLightController" */ = {
+		F2AD5BA6199963DE00A26E5D /* Build configuration list for PBXProject "CueLightController" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				F2AD5BC9199963DE00A26E5D /* Debug */,
@@ -415,7 +415,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		F2AD5BCB199963DE00A26E5D /* Build configuration list for PBXNativeTarget "cueLightController" */ = {
+		F2AD5BCB199963DE00A26E5D /* Build configuration list for PBXNativeTarget "CueLightController.temp_caseinsensitive_rename" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				F2AD5BCC199963DE00A26E5D /* Debug */,
@@ -424,7 +424,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		F2AD5BCE199963DE00A26E5D /* Build configuration list for PBXNativeTarget "cueLightControllerTests" */ = {
+		F2AD5BCE199963DE00A26E5D /* Build configuration list for PBXNativeTarget "CueLightController.temp_caseinsensitive_renameTests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				F2AD5BCF199963DE00A26E5D /* Debug */,

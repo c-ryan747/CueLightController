@@ -9,7 +9,7 @@
 #import "OPTVC.h"
 
 @implementation OPTVC
-@synthesize mainButton = _mainButton, cueLables = _cueLables, peer = _peer;
+@synthesize mainButton = _mainButton, cueLables = _cueLables, peer = _peer, opLable = _opLable;
 - (instancetype)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier
 {
     self = [super initWithStyle:style reuseIdentifier:reuseIdentifier];
@@ -38,8 +38,14 @@
         
         [self addSubview:self.mainButton];
         
+        
+        self.opLable = [[UILabel alloc]initWithFrame:CGRectMake(140, 10, 400, 80)];
+        self.opLable.adjustsFontSizeToFitWidth = YES;
+        [self addSubview:self.opLable];
+        
+        
         for (int i=0; i<3; i++) {
-            UILabel *cueLabel = [[UILabel alloc]initWithFrame:CGRectMake(140, 10 + i*30, 400, 20)];
+            UILabel *cueLabel = [[UILabel alloc]initWithFrame:CGRectMake(240, 10 + i*30, 400, 20)];
             [self.cueLables addObject:cueLabel];
             [self addSubview:cueLabel];
         }
@@ -80,7 +86,7 @@
         return;
     } else {
         [self nextState];
-        [[MPController sharedInstance] sendString:@"nextState" ToPeers:[NSArray arrayWithObject:self.peer]];
+        [[MPController sharedInstance] sendObject:@"nextState" ToPeers:@[self.peer]];
         
     }
 }
