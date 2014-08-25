@@ -15,10 +15,14 @@
     NSArray *states;
 }
 @property (        nonatomic) int stateCount;
-@property (strong, nonatomic) UIButton *mainButton;
-@property (strong, nonatomic) NSMutableArray *cueLables;
-@property (strong, nonatomic) UILabel *opLable;
 @property (strong, nonatomic) MCPeerID *peer;
+
+@property (weak, nonatomic) IBOutlet UIButton *mainButton;
+@property (weak, nonatomic) IBOutlet UILabel *opLabel;
+@property (weak, nonatomic) IBOutlet UILabel *cue1;
+@property (weak, nonatomic) IBOutlet UILabel *cue2;
+@property (weak, nonatomic) IBOutlet UILabel *cue3;
+
 
 - (void)nextState;
 - (void)resetState;

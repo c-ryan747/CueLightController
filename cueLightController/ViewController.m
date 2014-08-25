@@ -27,7 +27,7 @@
     [self.mpController setupIfNeededWithName:nil];
     self.mpController.delegate = self;
     
-    [self.tableView registerClass:[OPTVC class] forCellReuseIdentifier:@"opCell"];
+    //[self.tableView registerClass:[OPTVC class] forCellReuseIdentifier:@"opCell"];
     
     
 }
@@ -50,11 +50,10 @@
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     OPTVC *cell = [tableView dequeueReusableCellWithIdentifier:@"opCell"];
-    
     cell.peer = self.mpController.session.connectedPeers[indexPath.row];
-    cell.opLable.text = cell.peer.displayName;
-    
-    [cell.mainButton setTitle:@"Ready" forState:UIControlStateNormal];
+    cell.opLabel.text = cell.peer.displayName;
+    cell.mainButton.layer.cornerRadius = 10;
+    [cell resetState];
     
     return cell;
 }
@@ -103,10 +102,9 @@
     NSInteger cueIndex = [self.mpController.session.connectedPeers indexOfObject:peer];
     if (cueIndex != NSNotFound) {
         OPTVC *cell = (OPTVC *)[self.tableView cellForRowAtIndexPath:[NSIndexPath indexPathForRow:cueIndex inSection:0]];
-        for (int i=0; i<cues.count; i++) {
-            UILabel *cueLabel = cell.cueLables[i];
-            cueLabel.text = cues[i];
-        }
+        cell.cue1.text = cues[0];
+        cell.cue2.text = cues[1];
+        cell.cue3.text = cues[2];
     }
     
 }
