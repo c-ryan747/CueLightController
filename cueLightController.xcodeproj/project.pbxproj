@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		F22A36FA199BE1C100512C87 /* OPTVC.m in Sources */ = {isa = PBXBuildFile; fileRef = F22A36F9199BE1C100512C87 /* OPTVC.m */; };
 		F251BE15199A988F0030C7F6 /* MPController.m in Sources */ = {isa = PBXBuildFile; fileRef = F251BE14199A988F0030C7F6 /* MPController.m */; };
+		F298B75119BC745400F1D6F5 /* AudioController.m in Sources */ = {isa = PBXBuildFile; fileRef = F298B74F19BC745400F1D6F5 /* AudioController.m */; };
 		F2AD5BB1199963DE00A26E5D /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = F2AD5BB0199963DE00A26E5D /* main.m */; };
 		F2AD5BB4199963DE00A26E5D /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = F2AD5BB3199963DE00A26E5D /* AppDelegate.m */; };
 		F2AD5BB7199963DE00A26E5D /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F2AD5BB6199963DE00A26E5D /* ViewController.m */; };
@@ -32,6 +33,8 @@
 		F22A36F9199BE1C100512C87 /* OPTVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OPTVC.m; sourceTree = "<group>"; };
 		F251BE13199A988F0030C7F6 /* MPController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MPController.h; path = ../../CueLight/CueLight/MPController.h; sourceTree = "<group>"; };
 		F251BE14199A988F0030C7F6 /* MPController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MPController.m; path = ../../CueLight/CueLight/MPController.m; sourceTree = "<group>"; };
+		F298B74F19BC745400F1D6F5 /* AudioController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AudioController.m; path = ../../CueLight/CueLight/AudioController.m; sourceTree = "<group>"; };
+		F298B75019BC745400F1D6F5 /* AudioController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AudioController.h; path = ../../CueLight/CueLight/AudioController.h; sourceTree = "<group>"; };
 		F2AD5BAB199963DE00A26E5D /* CueLightController.temp_caseinsensitive_rename.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CueLightController.temp_caseinsensitive_rename.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F2AD5BAF199963DE00A26E5D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		F2AD5BB0199963DE00A26E5D /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -95,6 +98,8 @@
 				F251BE14199A988F0030C7F6 /* MPController.m */,
 				F2AD5BB8199963DE00A26E5D /* Main.storyboard */,
 				F2AD5BBB199963DE00A26E5D /* Images.xcassets */,
+				F298B74F19BC745400F1D6F5 /* AudioController.m */,
+				F298B75019BC745400F1D6F5 /* AudioController.h */,
 				F2AD5BAE199963DE00A26E5D /* Supporting Files */,
 			);
 			path = cueLightController;
@@ -225,6 +230,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F298B75119BC745400F1D6F5 /* AudioController.m in Sources */,
 				F2AD5BB7199963DE00A26E5D /* ViewController.m in Sources */,
 				F2AD5BB4199963DE00A26E5D /* AppDelegate.m in Sources */,
 				F251BE15199A988F0030C7F6 /* MPController.m in Sources */,
