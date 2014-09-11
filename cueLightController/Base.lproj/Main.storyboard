@@ -1,9 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6206.8" systemVersion="14A329f" targetRuntime="iOS.CocoaTouch.iPad" propertyAccessControl="none" useAutolayout="YES" initialViewController="05n-i8-Fwn">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6245" systemVersion="14A343f" targetRuntime="iOS.CocoaTouch.iPad" propertyAccessControl="none" useAutolayout="YES" initialViewController="05n-i8-Fwn">
     <dependencies>
-        <deployment defaultVersion="1792" identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7026.1"/>
-        <capability name="Constraints with attributes relative to the layout margin" minToolsVersion="6.0"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6238"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
         <!--Cue Light Controller-->
@@ -51,11 +50,11 @@
                                                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                                     </state>
                                                     <connections>
-                                                        <action selector="buttonPressed:" destination="pI3-FG-Ml7" eventType="touchUpInside" id="MY3-su-Khi"/>
+                                                        <action selector="mainButtonPressed:" destination="pI3-FG-Ml7" eventType="touchUpInside" id="2mW-Gd-HL1"/>
                                                     </connections>
                                                 </button>
                                                 <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fB5-p6-21F">
-                                                    <rect key="frame" x="602" y="8" width="394" height="20"/>
+                                                    <rect key="frame" x="642" y="8" width="354" height="20"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="20" id="UUX-ES-al7"/>
                                                     </constraints>
@@ -64,29 +63,47 @@
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="24" translatesAutoresizingMaskIntoConstraints="NO" id="ZmF-tX-CoE">
-                                                    <rect key="frame" x="188" y="8" width="394" height="74"/>
+                                                    <rect key="frame" x="268" y="8" width="354" height="74"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="48"/>
                                                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="C0y-Rg-dIH">
-                                                    <rect key="frame" x="602" y="38" width="394" height="23"/>
+                                                    <rect key="frame" x="642" y="38" width="354" height="23"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vU1-0S-dDR">
-                                                    <rect key="frame" x="602" y="71" width="394" height="19"/>
+                                                    <rect key="frame" x="642" y="71" width="354" height="19"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" adjustsImageWhenHighlighted="NO" adjustsImageWhenDisabled="NO" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Tht-pl-hmp">
+                                                    <rect key="frame" x="178" y="7" width="70" height="83.5"/>
+                                                    <color key="backgroundColor" red="0.0" green="0.0" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="70" id="s2H-85-DjT"/>
+                                                    </constraints>
+                                                    <fontDescription key="fontDescription" type="boldSystem" pointSize="24"/>
+                                                    <state key="normal">
+                                                        <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                                    </state>
+                                                    <connections>
+                                                        <action selector="speakButtonPressed:" destination="pI3-FG-Ml7" eventType="touchUpInside" id="gmX-DA-C7c"/>
+                                                    </connections>
+                                                </button>
                                             </subviews>
                                             <constraints>
                                                 <constraint firstItem="vU1-0S-dDR" firstAttribute="top" secondItem="C0y-Rg-dIH" secondAttribute="bottom" constant="10" id="1kD-Xw-5WM"/>
                                                 <constraint firstItem="C0y-Rg-dIH" firstAttribute="top" secondItem="fB5-p6-21F" secondAttribute="bottom" constant="10" id="74P-4E-f64"/>
+                                                <constraint firstItem="ZmF-tX-CoE" firstAttribute="leading" secondItem="Tht-pl-hmp" secondAttribute="trailing" constant="20" id="9gu-ak-I4d"/>
                                                 <constraint firstAttribute="bottomMargin" secondItem="ZmF-tX-CoE" secondAttribute="bottom" constant="10" id="B0g-Pb-V4q"/>
-                                                <constraint firstItem="ZmF-tX-CoE" firstAttribute="leading" secondItem="sg0-cZ-SSd" secondAttribute="trailing" constant="20" id="PaU-4e-tow"/>
+                                                <constraint firstAttribute="bottomMargin" secondItem="Tht-pl-hmp" secondAttribute="bottom" constant="1.5" id="Hq5-yw-1JJ"/>
+                                                <constraint firstItem="Tht-pl-hmp" firstAttribute="top" secondItem="sg0-cZ-SSd" secondAttribute="top" constant="-1" id="J8L-Q3-vhp"/>
+                                                <constraint firstItem="Tht-pl-hmp" firstAttribute="leading" secondItem="sg0-cZ-SSd" secondAttribute="trailing" constant="10" id="JYM-aR-DcQ"/>
                                                 <constraint firstItem="C0y-Rg-dIH" firstAttribute="centerY" secondItem="Nzm-Vy-d8Q" secondAttribute="centerY" id="Q64-cs-x9Y"/>
                                                 <constraint firstAttribute="bottomMargin" secondItem="sg0-cZ-SSd" secondAttribute="bottom" id="RCE-gx-QPE"/>
                                                 <constraint firstItem="C0y-Rg-dIH" firstAttribute="width" secondItem="fB5-p6-21F" secondAttribute="width" id="UvH-5x-rWS"/>
@@ -109,6 +126,7 @@
                                             <outlet property="cue3" destination="vU1-0S-dDR" id="anQ-kW-1F1"/>
                                             <outlet property="mainButton" destination="sg0-cZ-SSd" id="tB5-VS-pWw"/>
                                             <outlet property="opLabel" destination="ZmF-tX-CoE" id="xhH-AE-nGt"/>
+                                            <outlet property="speakButton" destination="Tht-pl-hmp" id="1Q8-aR-zKG"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
@@ -157,9 +175,6 @@
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
         <simulatedOrientationMetrics key="orientation"/>
-        <simulatedScreenMetrics key="destination">
-            <size key="portraitSize" width="768" height="1024"/>
-            <size key="landscapeSize" width="1024" height="768"/>
-        </simulatedScreenMetrics>
+        <simulatedScreenMetrics key="destination"/>
     </simulatedMetricsContainer>
 </document>

@@ -98,8 +98,8 @@
 				F251BE14199A988F0030C7F6 /* MPController.m */,
 				F2AD5BB8199963DE00A26E5D /* Main.storyboard */,
 				F2AD5BBB199963DE00A26E5D /* Images.xcassets */,
-				F298B74F19BC745400F1D6F5 /* AudioController.m */,
 				F298B75019BC745400F1D6F5 /* AudioController.h */,
+				F298B74F19BC745400F1D6F5 /* AudioController.m */,
 				F2AD5BAE199963DE00A26E5D /* Supporting Files */,
 			);
 			path = cueLightController;

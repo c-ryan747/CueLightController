@@ -15,8 +15,7 @@
 @implementation ViewController
 
 
-- (void)viewDidLoad
-{
+- (void)viewDidLoad {
     [super viewDidLoad];
     
     self.tableView.delegate = self;
@@ -28,28 +27,22 @@
     self.mpController.delegate = self;
     
     //[self.tableView registerClass:[OPTVC class] forCellReuseIdentifier:@"opCell"];
-    
-    
 }
 
 #pragma mark - Table view data source
 
-- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
-{
+- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
     // Return the number of sections.
-    
     return 1;
 }
 
-- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
-{
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     // Return the number of rows in the section.
     return self.mpController.session.connectedPeers.count;
 }
 
 
-- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
-{
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     OPTVC *cell = [tableView dequeueReusableCellWithIdentifier:@"opCell"];
     cell.peer = self.mpController.session.connectedPeers[indexPath.row];
     cell.opLabel.text = cell.peer.displayName;
@@ -58,15 +51,9 @@
     
     return cell;
 }
-- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
-{
+
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
     return 100.f;
-}
-
-
-- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
-{
-
 }
 
 - (IBAction)searchForPeer:(id)sender {
@@ -87,19 +74,16 @@
 - (void)browserViewControllerWasCancelled:(MCBrowserViewController *)browserViewController {
     [self.mpController.browser dismissViewControllerAnimated:YES completion:nil];
 }
-- (void)peerListChanged
-{
+- (void)peerListChanged {
     [self.tableView reloadSections:[NSIndexSet indexSetWithIndex:0] withRowAnimation:UITableViewRowAnimationAutomatic];
     [self.mpController sendObject:@"imTheController" ToPeers:self.mpController.session.connectedPeers];
 }
-- (void)recievedMessage:(NSData *)data fromPeer:(MCPeerID *)peer
-{
+- (void)recievedMessage:(NSData *)data fromPeer:(MCPeerID *)peer {
     NSIndexPath *indexPath = [NSIndexPath indexPathForRow:[self.mpController.session.connectedPeers indexOfObject:peer] inSection:0];
     OPTVC *cell = (OPTVC *)[self.tableView cellForRowAtIndexPath:indexPath];
     [cell nextState];
 }
-- (void)recieveNewCues:(NSArray *)cues fromPeer:(MCPeerID *)peer
-{
+- (void)recieveNewCues:(NSArray *)cues fromPeer:(MCPeerID *)peer {
     NSInteger cueIndex = [self.mpController.session.connectedPeers indexOfObject:peer];
     if (cueIndex != NSNotFound) {
         OPTVC *cell = (OPTVC *)[self.tableView cellForRowAtIndexPath:[NSIndexPath indexPathForRow:cueIndex inSection:0]];

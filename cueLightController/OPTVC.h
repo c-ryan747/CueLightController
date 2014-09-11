@@ -18,6 +18,7 @@
 @property (strong, nonatomic) MCPeerID *peer;
 
 @property (weak, nonatomic) IBOutlet UIButton *mainButton;
+@property (weak, nonatomic) IBOutlet UIButton *speakButton;
 @property (weak, nonatomic) IBOutlet UILabel *opLabel;
 @property (weak, nonatomic) IBOutlet UILabel *cue1;
 @property (weak, nonatomic) IBOutlet UILabel *cue2;
