@@ -9,7 +9,7 @@
 #import "OPTVC.h"
 
 @implementation OPTVC
-@synthesize peer = _peer, mainButton, cue1, cue2, cue3, opLabel, speakButton;
+@synthesize peer = _peer, mainButton, cue1, cue2, cue3, opLabel, speakButton, audioList = _audioList;
 - (instancetype)initWithCoder:(NSCoder *)aDecoder {
     self = [super initWithCoder:aDecoder];
     if (self) {
@@ -18,6 +18,21 @@
                    @{@"colour":[UIColor orangeColor], @"text":@"..."        , @"flashing":@YES},
                    @{@"colour":[UIColor greenColor] , @"text":@"Go"         , @"flashing":@NO},
                    @{@"colour":[UIColor orangeColor], @"text":@"..."        , @"flashing":@YES}];
+        
+        NSNotificationCenter *center = [NSNotificationCenter defaultCenter];
+        [center addObserverForName:CLStartedPlaying object:nil queue:nil usingBlock:^(NSNotification *notification) {
+            self.speakButton.enabled = NO;
+        }];
+        [center addObserverForName:CLFinishedPlaying object:nil queue:nil usingBlock:^(NSNotification *notification) {
+            self.speakButton.enabled = YES;
+        }];
+        [center addObserverForName:CLStartedRecording object:nil queue:nil usingBlock:^(NSNotification *notification) {
+            self.speakButton.enabled = NO;
+        }];
+        [center addObserverForName:CLFinishedRecording object:nil queue:nil usingBlock:^(NSNotification *notification) {
+            self.speakButton.enabled = YES;
+        }];
+
     }
     return self;
 }
@@ -59,15 +74,8 @@
         
     }
 }
-- (IBAction)speakButtonPressed:(id)sender {
-    AudioController *ac = [AudioController sharedInstance];
-    if (ac.canRecord) {
-        if (ac.recorder.recording) {
-            [ac stop];
-            [ac sendToPeer:[MPController sharedInstance].controllerID];
-        } else {
-            [ac start];
-        }
-    }
+- (void)setDelegate:(id<OPTVCDelegate>)delegate {
+    _delegate = delegate;
+    [self.speakButton addTarget:delegate action:@selector(speakButtonPressed:) forControlEvents:UIControlEventTouchUpInside];
 }
 @end

@@ -93,4 +93,10 @@
     }
     
 }
+
+- (void)recievedAudioAtURL:(NSURL *)url fromPeer:(MCPeerID *)peer {
+    NSInteger index = [self.mpController.session.connectedPeers indexOfObject:peer];
+    OPTVC *cell = (OPTVC *)[self.tableView cellForRowAtIndexPath:[NSIndexPath indexPathForRow:index inSection:0]];
+    [cell.audioList addObject:url];
+}
 @end
