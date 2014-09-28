@@ -9,18 +9,19 @@
 #import <UIKit/UIKit.h>
 #import <MultipeerConnectivity/MultipeerConnectivity.h>
 #import "MPController.h"
+@class OPTVC;
 
 @protocol OPTVCDelegate <NSObject>
 
 @required
-- (void)sendNextState;
-- (void)speakButtonPressed;
+- (void)speakButtonPressed:(OPTVC *)sender;
 
 @end
 
 @interface OPTVC : UITableViewCell {
     NSArray *states;
 }
+
 @property (        nonatomic) int stateCount;
 @property (strong, nonatomic) MCPeerID *peer;
 @property (strong, nonatomic) NSMutableArray *audioList;
@@ -32,6 +33,7 @@
 @property (weak, nonatomic) IBOutlet UILabel *cue1;
 @property (weak, nonatomic) IBOutlet UILabel *cue2;
 @property (weak, nonatomic) IBOutlet UILabel *cue3;
+
 
 
 - (void)nextState;

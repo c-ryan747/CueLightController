@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6245" systemVersion="14A343f" targetRuntime="iOS.CocoaTouch.iPad" propertyAccessControl="none" useAutolayout="YES" initialViewController="05n-i8-Fwn">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6245" systemVersion="14A361c" targetRuntime="iOS.CocoaTouch.iPad" propertyAccessControl="none" useAutolayout="YES" initialViewController="05n-i8-Fwn">
     <dependencies>
+        <deployment defaultVersion="1792" identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6238"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
@@ -24,6 +25,19 @@
                                         <connections>
                                             <action selector="searchForPeer:" destination="ZXJ-JR-KDy" id="fsi-Ix-8ib"/>
                                         </connections>
+                                    </barButtonItem>
+                                    <barButtonItem title="Start" id="4Ey-FH-JBQ">
+                                        <connections>
+                                            <action selector="startStopButtonPressed:" destination="ZXJ-JR-KDy" id="h5L-47-uMe"/>
+                                        </connections>
+                                    </barButtonItem>
+                                    <barButtonItem enabled="NO" title="Pause" id="R6p-R8-xpn">
+                                        <connections>
+                                            <action selector="pauseItemPressed:" destination="ZXJ-JR-KDy" id="3BD-Ba-ber"/>
+                                        </connections>
+                                    </barButtonItem>
+                                    <barButtonItem title="00:00:00" style="plain" id="MaF-Cs-ccO">
+                                        <color key="tintColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                     </barButtonItem>
                                 </items>
                             </toolbar>
@@ -92,7 +106,7 @@
                                                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                                     </state>
                                                     <connections>
-                                                        <action selector="speakButtonPressed:" destination="pI3-FG-Ml7" eventType="touchUpInside" id="gmX-DA-C7c"/>
+                                                        <action selector="speakButtonPressed:" destination="pI3-FG-Ml7" eventType="touchUpInside" id="JRJ-Y7-fkl"/>
                                                     </connections>
                                                 </button>
                                             </subviews>
@@ -146,7 +160,11 @@
                     <navigationItem key="navigationItem" title="Cue Light Controller" id="g1f-YD-fhE"/>
                     <simulatedOrientationMetrics key="simulatedOrientationMetrics" orientation="landscapeRight"/>
                     <connections>
+                        <outlet property="pauseItem" destination="R6p-R8-xpn" id="Mz5-IF-Yk0"/>
+                        <outlet property="startStopItem" destination="4Ey-FH-JBQ" id="kbM-E0-z2G"/>
                         <outlet property="tableView" destination="J6Y-q9-NZs" id="xhh-g7-19L"/>
+                        <outlet property="timerItem" destination="MaF-Cs-ccO" id="1XV-ga-Osn"/>
+                        <outlet property="toolbar" destination="M3C-54-LLf" id="2yG-mS-tZL"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="NmG-VA-gwk" userLabel="First Responder" sceneMemberID="firstResponder"/>

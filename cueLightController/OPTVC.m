@@ -10,14 +10,15 @@
 
 @implementation OPTVC
 @synthesize peer = _peer, mainButton, cue1, cue2, cue3, opLabel, speakButton, audioList = _audioList;
+#pragma mark - Init
 - (instancetype)initWithCoder:(NSCoder *)aDecoder {
     self = [super initWithCoder:aDecoder];
     if (self) {
         
-        states = @[@{@"colour":[UIColor greenColor] , @"text":@"Get Ready"  , @"flashing":@NO},
-                   @{@"colour":[UIColor orangeColor], @"text":@"..."        , @"flashing":@YES},
-                   @{@"colour":[UIColor greenColor] , @"text":@"Go"         , @"flashing":@NO},
-                   @{@"colour":[UIColor orangeColor], @"text":@"..."        , @"flashing":@YES}];
+        states = @[@{@"colour":[UIColor greenColor] , @"text":@"Get Ready"},
+                   @{@"colour":[UIColor orangeColor], @"text":@"..."},
+                   @{@"colour":[UIColor greenColor] , @"text":@"Go" },
+                   @{@"colour":[UIColor orangeColor], @"text":@"..."}];
         
         NSNotificationCenter *center = [NSNotificationCenter defaultCenter];
         [center addObserverForName:CLStartedPlaying object:nil queue:nil usingBlock:^(NSNotification *notification) {
@@ -32,10 +33,11 @@
         [center addObserverForName:CLFinishedRecording object:nil queue:nil usingBlock:^(NSNotification *notification) {
             self.speakButton.enabled = YES;
         }];
-
     }
     return self;
 }
+
+#pragma mark - State
 - (void)nextState {
     if (self.stateCount >= states.count - 1) {
         self.stateCount = 0;
@@ -44,12 +46,14 @@
     }
     [self loadState];
 }
+
 - (void)loadState {
     [self.mainButton setTitle:states[self.stateCount][@"text"]   forState:UIControlStateNormal];
     [UIView animateWithDuration:0.5 animations:^{
         self.mainButton.backgroundColor = states[self.stateCount][@"colour"];
     } completion:NULL];
 }
+
 - (void)resetState {
     self.stateCount = 0;
     
@@ -59,12 +63,14 @@
     
     [self loadState];
 }
+
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {
     [super setSelected:selected animated:animated];
 
     // Configure the view for the selected state
 }
 
+#pragma mark - Events
 - (IBAction)mainButtonPressed:(id)sender {
     if (self.stateCount == 1 ||self.stateCount == 3) {
         return;
@@ -74,8 +80,11 @@
         
     }
 }
-- (void)setDelegate:(id<OPTVCDelegate>)delegate {
-    _delegate = delegate;
-    [self.speakButton addTarget:delegate action:@selector(speakButtonPressed:) forControlEvents:UIControlEventTouchUpInside];
+
+- (IBAction)speakButtonPressed:(id)sender {
+    if (self.delegate != nil && [self.delegate respondsToSelector:@selector(speakButtonPressed:)]) {
+        [self.delegate speakButtonPressed:self];
+    }
 }
+
 @end
