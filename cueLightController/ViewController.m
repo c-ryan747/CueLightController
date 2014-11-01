@@ -2,26 +2,26 @@
 //  ViewController.m
 //  cueLightController
 //
-//  Created by Callum Ryan on 11/08/2014.
+//  Created by Callum Ryan on 27/10/2014.
 //  Copyright (c) 2014 Callum Ryan. All rights reserved.
 //
 
 #import "ViewController.h"
 
-@interface ViewController ()
-
-@end
-
 @implementation ViewController
+
 @synthesize toolbar = _toolbar, tableView = _tableView, mpController = _mpController, timer = _timer, secondsPassed = _secondsPassed, timerItem = _timerItem, pauseItem = _pauseItem, startStopItem = _startStopItem;
 
+#pragma mark - Init
 - (void)viewDidLoad {
     [super viewDidLoad];
     
+    //  Tableview init
     self.tableView.delegate = self;
     self.tableView.dataSource = self;
     self.tableView.contentInset = UIEdgeInsetsMake(0,0,0,0);
 
+    //  Networking init
     self.mpController = [MPController sharedInstance];
     [self.mpController setupIfNeededWithName:nil];
     self.mpController.delegate = self;
@@ -29,15 +29,14 @@
 
 #pragma mark - Table view data source
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
-    // Return the number of sections.
     return 1;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    // Return the number of rows in the section.
     return self.mpController.session.connectedPeers.count;
 }
 
+//  Create a new OP cell and populate with data based on index
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     OPTVC *cell = [tableView dequeueReusableCellWithIdentifier:@"opCell"];
     cell.peer = self.mpController.session.connectedPeers[indexPath.row];
@@ -55,6 +54,7 @@
 
 #pragma mark - Communication
 - (IBAction)searchForPeer:(id)sender {
+    //  if session created, then create browser and present it
     if (self.mpController.session != nil) {
         [self.mpController createBrowser];
         self.mpController.browser.delegate = self;
@@ -66,26 +66,33 @@
 }
 
 - (void)browserViewControllerDidFinish:(MCBrowserViewController *)browserViewController {
+    //  Dismiss on completion
     [self.mpController.browser dismissViewControllerAnimated:YES completion:nil];
 }
 
 - (void)browserViewControllerWasCancelled:(MCBrowserViewController *)browserViewController {
+    //  Dismiss on completion
     [self.mpController.browser dismissViewControllerAnimated:YES completion:nil];
 }
 
+//  When a new OPs connected, add a row and tell them im the controller
 - (void)peerListChanged {
     [self.tableView reloadSections:[NSIndexSet indexSetWithIndex:0] withRowAnimation:UITableViewRowAnimationAutomatic];
     [self.mpController sendObject:@"imTheController" ToPeers:self.mpController.session.connectedPeers];
 }
 
-- (void)recievedMessage:(NSData *)data fromPeer:(MCPeerID *)peer {
+//  Update the state of the cell repersenting the OP the sent the message
+- (void)recievedMessage:(NSString *)data fromPeer:(MCPeerID *)peer {
     NSIndexPath *indexPath = [NSIndexPath indexPathForRow:[self.mpController.session.connectedPeers indexOfObject:peer] inSection:0];
     OPTVC *cell = (OPTVC *)[self.tableView cellForRowAtIndexPath:indexPath];
+    cell.delegate = self;
     [cell nextState];
 }
 
+//  Get relevant cell and update text
 - (void)recieveNewCues:(NSArray *)cues fromPeer:(MCPeerID *)peer {
     NSInteger cueIndex = [self.mpController.session.connectedPeers indexOfObject:peer];
+    //  Check index was valid
     if (cueIndex != NSNotFound) {
         OPTVC *cell = (OPTVC *)[self.tableView cellForRowAtIndexPath:[NSIndexPath indexPathForRow:cueIndex inSection:0]];
         cell.cue1.text = cues[0];
@@ -94,6 +101,7 @@
     }
 }
 
+//  Add recieved audio to the appropriate cell
 - (void)recievedAudioAtURL:(NSURL *)url fromPeer:(MCPeerID *)peer {
     NSInteger index = [self.mpController.session.connectedPeers indexOfObject:peer];
     OPTVC *cell = (OPTVC *)[self.tableView cellForRowAtIndexPath:[NSIndexPath indexPathForRow:index inSection:0]];
@@ -103,22 +111,30 @@
 #pragma mark - Events
 - (void)speakButtonPressed:(OPTVC *)sender {
     AudioController *ac = [AudioController sharedInstance];
+    //  if normal state
     if (!ac.recorder.recording && !ac.player.playing) {
+        //  if audio to play, play it and remove, else start recording
         if (sender.audioList.count != 0) {
             [ac playUrl:sender.audioList[0]];
             [sender.audioList removeObjectAtIndex:0];
         } else {
             [ac start];
         }
+    //  else if recording, stop and send audio to peer
     } else if (ac.recorder.recording) {
         [ac stop];
         [ac sendToPeer:sender.peer];
     }
 }
 
+#pragma mark - Timer
 - (IBAction)startStopButtonPressed:(UIBarButtonItem *)sender {
+    //  Clear timer
     [self.timer invalidate];
-    if (![sender.title isEqualToString:@"Stop"]) {
+    
+    // if start, then start timer & enable pause & set title to stop, else clear & dissable pause & set title to start
+    if ([sender.title isEqualToString:@"Start"]) {
+        //  Call updateClock every second
         self.timer = [NSTimer scheduledTimerWithTimeInterval: 1.0 target:self selector:@selector(updateClock) userInfo:nil repeats: YES];
         self.pauseItem.enabled = YES;
         sender.title = @"Stop";
@@ -129,6 +145,7 @@
     }
 }
 
+//  Clear timer, dissable pause then rename
 - (IBAction)pauseItemPressed:(id)sender {
     [self.timer invalidate];
     self.pauseItem.enabled = NO;
@@ -136,12 +153,14 @@
 }
 
 -(void)updateClock {
+    //  Format time
     int hours, minutes, seconds;
     self.secondsPassed++;
     hours = self.secondsPassed / 3600;
     minutes = (self.secondsPassed % 3600) / 60;
     seconds = (self.secondsPassed %3600) % 60;
     
+    //  Update UI
     self.timerItem.title = [NSString stringWithFormat:@"%02d:%02d:%02d", hours, minutes, seconds];
 }
 @end
