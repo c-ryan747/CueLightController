@@ -23,7 +23,7 @@
 
     //  Networking init
     self.mpController = [MPController sharedInstance];
-    [self.mpController setupIfNeededWithName:nil];
+    [self.mpController setupWithName:nil];
     self.mpController.delegate = self;
 }
 
@@ -41,8 +41,6 @@
     OPTVC *cell = [tableView dequeueReusableCellWithIdentifier:@"opCell"];
     cell.peer = self.mpController.session.connectedPeers[indexPath.row];
     cell.opLabel.text = cell.peer.displayName;
-    cell.mainButton.layer.cornerRadius = 10;
-    cell.delegate = self;
     [cell resetState];
     
     return cell;
@@ -85,7 +83,6 @@
 - (void)recievedMessage:(NSString *)data fromPeer:(MCPeerID *)peer {
     NSIndexPath *indexPath = [NSIndexPath indexPathForRow:[self.mpController.session.connectedPeers indexOfObject:peer] inSection:0];
     OPTVC *cell = (OPTVC *)[self.tableView cellForRowAtIndexPath:indexPath];
-    cell.delegate = self;
     [cell nextState];
 }
 
@@ -95,9 +92,15 @@
     //  Check index was valid
     if (cueIndex != NSNotFound) {
         OPTVC *cell = (OPTVC *)[self.tableView cellForRowAtIndexPath:[NSIndexPath indexPathForRow:cueIndex inSection:0]];
+        
+        //  Set text
         cell.cue1.text = cues[0];
         cell.cue2.text = cues[1];
         cell.cue3.text = cues[2];
+        
+        //  Rounded corners
+        cell.mainButton.layer.cornerRadius = 10;
+        cell.speakButton.layer.cornerRadius = 10;
     }
 }
 
@@ -106,26 +109,12 @@
     NSInteger index = [self.mpController.session.connectedPeers indexOfObject:peer];
     OPTVC *cell = (OPTVC *)[self.tableView cellForRowAtIndexPath:[NSIndexPath indexPathForRow:index inSection:0]];
     [cell.audioList addObject:url];
-}
-
-#pragma mark - Events
-- (void)speakButtonPressed:(OPTVC *)sender {
-    AudioController *ac = [AudioController sharedInstance];
-    //  if normal state
-    if (!ac.recorder.recording && !ac.player.playing) {
-        //  if audio to play, play it and remove, else start recording
-        if (sender.audioList.count != 0) {
-            [ac playUrl:sender.audioList[0]];
-            [sender.audioList removeObjectAtIndex:0];
-        } else {
-            [ac start];
-        }
-    //  else if recording, stop and send audio to peer
-    } else if (ac.recorder.recording) {
-        [ac stop];
-        [ac sendToPeer:sender.peer];
+    if (![cell.speakButtonState isEqualToString:@"Recording"] || ![cell.speakButtonState isEqualToString:@"Playing"]) {
+        cell.speakButtonState = @"Received";
     }
 }
+
+
 
 #pragma mark - Timer
 - (IBAction)startStopButtonPressed:(UIBarButtonItem *)sender {

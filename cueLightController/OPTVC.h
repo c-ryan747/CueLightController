@@ -13,16 +13,6 @@
 
 #import "MPController.h"
 
-@class OPTVC;
-
-//  Protocol to get data from cell
-@protocol OPTVCDelegate <NSObject>
-
-- (void)speakButtonPressed:(OPTVC *)sender;
-
-@end
-
-
 @interface OPTVC : UITableViewCell {
     NSArray *states;
 }
@@ -31,11 +21,11 @@
 @property (        nonatomic) int stateCount;
 @property (strong, nonatomic) MCPeerID *peer;
 @property (strong, nonatomic) NSMutableArray *audioList;
-@property (weak  , nonatomic) id <OPTVCDelegate> delegate;
 
 //  UI
 @property (weak, nonatomic) IBOutlet UIButton *mainButton;
 @property (weak, nonatomic) IBOutlet UIButton *speakButton;
+@property (strong, nonatomic) NSString *speakButtonState;
 @property (weak, nonatomic) IBOutlet UILabel *opLabel;
 @property (weak, nonatomic) IBOutlet UILabel *cue1;
 @property (weak, nonatomic) IBOutlet UILabel *cue2;

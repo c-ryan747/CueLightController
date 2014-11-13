@@ -13,7 +13,7 @@
 #import "MPController.h"
 #import "OPTVC.h"
 
-@interface ViewController : UIViewController <UITableViewDelegate, UITableViewDataSource, MCBrowserViewControllerDelegate, MPControllerDelegate, OPTVCDelegate>
+@interface ViewController : UIViewController <UITableViewDelegate, UITableViewDataSource, MCBrowserViewControllerDelegate, MPControllerDelegate>
 
 @property (strong, nonatomic) MPController *mpController;
 
