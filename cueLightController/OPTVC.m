@@ -10,8 +10,6 @@
 
 @implementation OPTVC
 
-@synthesize peer = _peer, mainButton = _mainButton, cue1 = _cue1, cue2 = _cue2, cue3 = _cue3, opLabel = _opLabel, speakButton = _speakButton, audioList = _audioList, speakButtonState = _speakButtonState;
-
 #pragma mark - Init
 - (instancetype)initWithCoder:(NSCoder *)aDecoder {
     self = [super initWithCoder:aDecoder];

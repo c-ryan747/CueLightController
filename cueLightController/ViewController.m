@@ -10,8 +10,6 @@
 
 @implementation ViewController
 
-@synthesize toolbar = _toolbar, tableView = _tableView, mpController = _mpController, timer = _timer, secondsPassed = _secondsPassed, timerItem = _timerItem, pauseItem = _pauseItem, startStopItem = _startStopItem;
-
 #pragma mark - Init
 - (void)viewDidLoad {
     [super viewDidLoad];

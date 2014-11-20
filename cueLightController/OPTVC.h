@@ -18,14 +18,14 @@
 }
 
 //  General
-@property (        nonatomic) int stateCount;
-@property (strong, nonatomic) MCPeerID *peer;
-@property (strong, nonatomic) NSMutableArray *audioList;
+@property int stateCount;
+@property (nonatomic) NSString *speakButtonState;
+@property MCPeerID *peer;
+@property NSMutableArray *audioList;
 
 //  UI
 @property (weak, nonatomic) IBOutlet UIButton *mainButton;
 @property (weak, nonatomic) IBOutlet UIButton *speakButton;
-@property (strong, nonatomic) NSString *speakButtonState;
 @property (weak, nonatomic) IBOutlet UILabel *opLabel;
 @property (weak, nonatomic) IBOutlet UILabel *cue1;
 @property (weak, nonatomic) IBOutlet UILabel *cue2;
