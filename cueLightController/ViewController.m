@@ -41,6 +41,10 @@
     cell.opLabel.text = cell.peer.displayName;
     [cell resetState];
     
+    //  Rounded corners
+    cell.mainButton.layer.cornerRadius = 10;
+    cell.speakButton.layer.cornerRadius = 10;
+    
     return cell;
 }
 
@@ -95,10 +99,6 @@
         cell.cue1.text = cues[0];
         cell.cue2.text = cues[1];
         cell.cue3.text = cues[2];
-        
-        //  Rounded corners
-        cell.mainButton.layer.cornerRadius = 10;
-        cell.speakButton.layer.cornerRadius = 10;
     }
 }
 
@@ -139,7 +139,7 @@
     self.startStopItem.title = @"Start";
 }
 
--(void)updateClock {
+- (void)updateClock {
     //  Format time
     int hours, minutes, seconds;
     self.secondsPassed++;

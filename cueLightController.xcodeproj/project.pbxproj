@@ -16,6 +16,7 @@
 		F2AD5BBA199963DE00A26E5D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F2AD5BB8199963DE00A26E5D /* Main.storyboard */; };
 		F2AD5BBC199963DE00A26E5D /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F2AD5BBB199963DE00A26E5D /* Images.xcassets */; };
 		F2AD5BC8199963DE00A26E5D /* cueLightControllerTests.m in Sources */ = {isa = PBXBuildFile; fileRef = F2AD5BC7199963DE00A26E5D /* cueLightControllerTests.m */; };
+		F2FC03021A3739B4003D67C5 /* HelpVC.m in Sources */ = {isa = PBXBuildFile; fileRef = F2FC03011A3739B4003D67C5 /* HelpVC.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -47,6 +48,8 @@
 		F2AD5BC1199963DE00A26E5D /* CueLightController.temp_caseinsensitive_renameTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CueLightController.temp_caseinsensitive_renameTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		F2AD5BC6199963DE00A26E5D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		F2AD5BC7199963DE00A26E5D /* cueLightControllerTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = cueLightControllerTests.m; sourceTree = "<group>"; };
+		F2FC03001A3739B4003D67C5 /* HelpVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = HelpVC.h; path = ../HelpVC.h; sourceTree = "<group>"; };
+		F2FC03011A3739B4003D67C5 /* HelpVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = HelpVC.m; path = ../HelpVC.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -92,6 +95,8 @@
 				F2AD5BB3199963DE00A26E5D /* AppDelegate.m */,
 				F2AD5BB5199963DE00A26E5D /* ViewController.h */,
 				F2AD5BB6199963DE00A26E5D /* ViewController.m */,
+				F2FC03001A3739B4003D67C5 /* HelpVC.h */,
+				F2FC03011A3739B4003D67C5 /* HelpVC.m */,
 				F22A36F8199BE1C100512C87 /* OPTVC.h */,
 				F22A36F9199BE1C100512C87 /* OPTVC.m */,
 				F251BE13199A988F0030C7F6 /* MPController.h */,
@@ -232,6 +237,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F2FC03021A3739B4003D67C5 /* HelpVC.m in Sources */,
 				F298B75119BC745400F1D6F5 /* AudioController.m in Sources */,
 				F2AD5BB7199963DE00A26E5D /* ViewController.m in Sources */,
 				F2AD5BB4199963DE00A26E5D /* AppDelegate.m in Sources */,
